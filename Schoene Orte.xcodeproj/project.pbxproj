@@ -15,6 +15,8 @@
 		B2C003D3244B3E7D005C7CE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2C003D1244B3E7D005C7CE4 /* LaunchScreen.storyboard */; };
 		B2C003DE244B3E7D005C7CE4 /* Schoene_OrteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C003DD244B3E7D005C7CE4 /* Schoene_OrteTests.swift */; };
 		B2C003E9244B3E7D005C7CE4 /* Schoene_OrteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C003E8244B3E7D005C7CE4 /* Schoene_OrteUITests.swift */; };
+		B2C003F7244B44B1005C7CE4 /* NicePlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C003F6244B44B1005C7CE4 /* NicePlacesTableViewController.swift */; };
+		B2C003F9244B45DC005C7CE4 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C003F8244B45DC005C7CE4 /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		B2C003E4244B3E7D005C7CE4 /* Schoene OrteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Schoene OrteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C003E8244B3E7D005C7CE4 /* Schoene_OrteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schoene_OrteUITests.swift; sourceTree = "<group>"; };
 		B2C003EA244B3E7D005C7CE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2C003F6244B44B1005C7CE4 /* NicePlacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicePlacesTableViewController.swift; sourceTree = "<group>"; };
+		B2C003F8244B45DC005C7CE4 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +106,9 @@
 				B2C003C6244B3E7B005C7CE4 /* AppDelegate.swift */,
 				B2C003C8244B3E7B005C7CE4 /* SceneDelegate.swift */,
 				B2C003CA244B3E7B005C7CE4 /* ViewController.swift */,
+				B2C003F8244B45DC005C7CE4 /* Place.swift */,
 				B2C003CC244B3E7B005C7CE4 /* Main.storyboard */,
+				B2C003F6244B44B1005C7CE4 /* NicePlacesTableViewController.swift */,
 				B2C003CF244B3E7D005C7CE4 /* Assets.xcassets */,
 				B2C003D1244B3E7D005C7CE4 /* LaunchScreen.storyboard */,
 				B2C003D4244B3E7D005C7CE4 /* Info.plist */,
@@ -259,9 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2C003F7244B44B1005C7CE4 /* NicePlacesTableViewController.swift in Sources */,
 				B2C003CB244B3E7B005C7CE4 /* ViewController.swift in Sources */,
 				B2C003C7244B3E7B005C7CE4 /* AppDelegate.swift in Sources */,
 				B2C003C9244B3E7B005C7CE4 /* SceneDelegate.swift in Sources */,
+				B2C003F9244B45DC005C7CE4 /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
