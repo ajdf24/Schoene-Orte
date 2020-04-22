@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2AA500D2450E10200BC287D /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AA500C2450E10200BC287D /* InputViewController.swift */; };
 		B2C003C7244B3E7B005C7CE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C003C6244B3E7B005C7CE4 /* AppDelegate.swift */; };
 		B2C003C9244B3E7B005C7CE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C003C8244B3E7B005C7CE4 /* SceneDelegate.swift */; };
 		B2C003CB244B3E7B005C7CE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C003CA244B3E7B005C7CE4 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B2AA500C2450E10200BC287D /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InputViewController.swift; path = ../InputViewController.swift; sourceTree = "<group>"; };
 		B2C003C3244B3E7B005C7CE4 /* Schoene Orte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Schoene Orte.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C003C6244B3E7B005C7CE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2C003C8244B3E7B005C7CE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		B2C003C5244B3E7B005C7CE4 /* Schoene Orte */ = {
 			isa = PBXGroup;
 			children = (
+				B2AA500C2450E10200BC287D /* InputViewController.swift */,
 				B2C003C6244B3E7B005C7CE4 /* AppDelegate.swift */,
 				B2C003C8244B3E7B005C7CE4 /* SceneDelegate.swift */,
 				B2C003CA244B3E7B005C7CE4 /* ViewController.swift */,
@@ -268,6 +271,7 @@
 				B2C003F7244B44B1005C7CE4 /* NicePlacesTableViewController.swift in Sources */,
 				B2C003CB244B3E7B005C7CE4 /* ViewController.swift in Sources */,
 				B2C003C7244B3E7B005C7CE4 /* AppDelegate.swift in Sources */,
+				B2AA500D2450E10200BC287D /* InputViewController.swift in Sources */,
 				B2C003C9244B3E7B005C7CE4 /* SceneDelegate.swift in Sources */,
 				B2C003F9244B45DC005C7CE4 /* Place.swift in Sources */,
 			);
