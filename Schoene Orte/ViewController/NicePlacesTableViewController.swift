@@ -22,13 +22,13 @@ class NicePlacesTableViewController: UITableViewController, InputViewControllerD
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             
-        // Get the presented navigationController and the editViewController it contains
+        // Get the presented navigationController and the inputViewController it contains
         let navigationController = segue.destination as! UINavigationController
-        let editViewController = navigationController.topViewController as! InputViewController
+        let inputViewController = navigationController.topViewController as! InputViewController
             
         // Set the editViewController to be the delegate of the presentationController for this presentation,
         // so that editViewController can respond to attempted dismissals
-        navigationController.presentationController?.delegate = editViewController
+        navigationController.presentationController?.delegate = inputViewController
             
         // Set ourself as the delegate of editViewController, so we can respond to editViewController cancelling or finishing
         editViewController.delegate = self
@@ -56,22 +56,15 @@ class NicePlacesTableViewController: UITableViewController, InputViewControllerD
         places.removeAll()
         
         do {
-            let fileURLs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            
-            if let documentURL = fileURLs.first {
-                let url = documentURL.appendingPathComponent("places.plist")
-                let data = try Data(contentsOf: url)
-                let plist = try PropertyListSerialization.propertyList(from: data, options: [], format: nil)
+            let data = try Data(contentsOf: try FileHandler.placesURL())
+            let plist = try PropertyListSerialization.propertyList(from: data, options: [], format: nil)
                 
-                if let array = plist as? [[String:Any]] {
-                    for dictionary in array {
-                        let place = Place(dictionary: dictionary)
-                        places.append(place)
-                    }
-                    tableView.reloadData()
-                }
-            } else {
-                print("Fehler im Dateisystem")
+            if let array = plist as? [[String:Any]] {
+                for dictionary in array {
+                    let place = Place(dictionary: dictionary)
+                    places.append(place)
+            }
+                tableView.reloadData()
             }
         } catch {
             print("error: \(error)")

@@ -28,7 +28,6 @@ class InputViewController: UITableViewController, UIAdaptivePresentationControll
     }
     
     // MARK: VIEW
-    
     @IBOutlet weak var nameTextfield: UITextField!
     @IBOutlet weak var websiteTextfield: UITextField!
     @IBOutlet weak var phonenumberTextfield: UITextField!
@@ -59,17 +58,11 @@ class InputViewController: UITableViewController, UIAdaptivePresentationControll
             do {
                 let data = try PropertyListSerialization.data(fromPropertyList: plistArry, format: .xml, options: 0)
                 
-                let fileURLs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-                
-                if let documentURL = fileURLs.first {
-                    let url = documentURL.appendingPathComponent("places.plist")
-                    try data.write(to: url, options: .atomic)
+                let url = try FileHandler.placesURL()
+                try data.write(to: url, options: .atomic)
                     
-                    sendDidFinish()
-                    dismiss(animated: true, completion: nil)
-                } else {
-                    print("Fehler im Dateisystem")
-                }
+                sendDidFinish()
+                dismiss(animated: true, completion: nil)
             } catch {
                 print("error: \(error)")
             }

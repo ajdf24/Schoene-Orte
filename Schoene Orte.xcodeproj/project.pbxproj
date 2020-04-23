@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B2AA500D2450E10200BC287D /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AA500C2450E10200BC287D /* InputViewController.swift */; };
+		B2AA50142451E19000BC287D /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AA50132451E19000BC287D /* FileHandler.swift */; };
+		B2AA50162451E24100BC287D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AA50152451E24100BC287D /* Constants.swift */; };
+		B2AA50182451E75B00BC287D /* RuntimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AA50172451E75B00BC287D /* RuntimeError.swift */; };
 		B2C003C7244B3E7B005C7CE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C003C6244B3E7B005C7CE4 /* AppDelegate.swift */; };
 		B2C003C9244B3E7B005C7CE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C003C8244B3E7B005C7CE4 /* SceneDelegate.swift */; };
 		B2C003CE244B3E7B005C7CE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2C003CC244B3E7B005C7CE4 /* Main.storyboard */; };
@@ -38,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		B2AA500C2450E10200BC287D /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		B2AA50132451E19000BC287D /* FileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandler.swift; sourceTree = "<group>"; };
+		B2AA50152451E24100BC287D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B2AA50172451E75B00BC287D /* RuntimeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeError.swift; sourceTree = "<group>"; };
 		B2C003C3244B3E7B005C7CE4 /* Schoene Orte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Schoene Orte.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C003C6244B3E7B005C7CE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2C003C8244B3E7B005C7CE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +112,15 @@
 			path = Storieboards;
 			sourceTree = "<group>";
 		};
+		B2AA50122451E16E00BC287D /* System */ = {
+			isa = PBXGroup;
+			children = (
+				B2AA50132451E19000BC287D /* FileHandler.swift */,
+				B2AA50172451E75B00BC287D /* RuntimeError.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
 		B2C003BA244B3E7A005C7CE4 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +144,7 @@
 		B2C003C5244B3E7B005C7CE4 /* Schoene Orte */ = {
 			isa = PBXGroup;
 			children = (
+				B2AA50122451E16E00BC287D /* System */,
 				B2AA50112451DD5F00BC287D /* Storieboards */,
 				B2AA50102451DD4300BC287D /* Model */,
 				B2AA500F2451DD1800BC287D /* ViewController */,
@@ -136,6 +152,7 @@
 				B2C003C8244B3E7B005C7CE4 /* SceneDelegate.swift */,
 				B2C003CF244B3E7D005C7CE4 /* Assets.xcassets */,
 				B2C003D4244B3E7D005C7CE4 /* Info.plist */,
+				B2AA50152451E24100BC287D /* Constants.swift */,
 			);
 			path = "Schoene Orte";
 			sourceTree = "<group>";
@@ -289,9 +306,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2AA50142451E19000BC287D /* FileHandler.swift in Sources */,
 				B2C003F7244B44B1005C7CE4 /* NicePlacesTableViewController.swift in Sources */,
 				B2C003C7244B3E7B005C7CE4 /* AppDelegate.swift in Sources */,
+				B2AA50182451E75B00BC287D /* RuntimeError.swift in Sources */,
 				B2AA500D2450E10200BC287D /* InputViewController.swift in Sources */,
+				B2AA50162451E24100BC287D /* Constants.swift in Sources */,
 				B2C003C9244B3E7B005C7CE4 /* SceneDelegate.swift in Sources */,
 				B2C003F9244B45DC005C7CE4 /* Place.swift in Sources */,
 			);
