@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 
 class NicePlacesTableViewController: UITableViewController, InputViewControllerDelegate {
     
@@ -31,7 +32,7 @@ class NicePlacesTableViewController: UITableViewController, InputViewControllerD
         navigationController.presentationController?.delegate = inputViewController
             
         // Set ourself as the delegate of editViewController, so we can respond to editViewController cancelling or finishing
-        editViewController.delegate = self
+        inputViewController.delegate = self
         
     }
     
@@ -67,7 +68,7 @@ class NicePlacesTableViewController: UITableViewController, InputViewControllerD
                 tableView.reloadData()
             }
         } catch {
-            print("error: \(error)")
+            os_log("Could not read data", type: .info)
         }
     }
 

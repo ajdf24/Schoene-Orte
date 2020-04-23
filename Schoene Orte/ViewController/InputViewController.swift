@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 
 protocol InputViewControllerDelegate: class {
     
@@ -50,21 +51,39 @@ class InputViewController: UITableViewController, UIAdaptivePresentationControll
         
         if let name = nameTextfield.text{
             let place = Place(name: name, website: websiteTextfield.text, phone: phonenumberTextfield.text)
-            print("place: \(place)")
+            os_log("place created", type: .debug)
             let plistDictionary = place.plistDictionary()
-            print("plistDictionary: \(plistDictionary)")
+            os_log("plistDictionary created", type: .debug)
             
-            let plistArry = [plistDictionary]
             do {
-                let data = try PropertyListSerialization.data(fromPropertyList: plistArry, format: .xml, options: 0)
-                
                 let url = try FileHandler.placesURL()
+                let plist: Any?
+                if let inData = try? Data(contentsOf: url) {
+                    do {
+                        plist = try PropertyListSerialization.propertyList(from: inData, options: [], format: nil)
+                    } catch {
+                        plist = nil
+                        os_log("Could not read data", type: .error)
+                    }
+                } else {
+                    plist = nil
+                    os_log("No Data found to load", type: .info)
+                }
+                
+                var plistArry: [[String:Any]] = []
+                if let theArray = plist as? [[String:Any]] {
+                    plistArry = theArray
+                }
+                
+                plistArry.append(plistDictionary)
+                
+                let data = try PropertyListSerialization.data(fromPropertyList: plistArry, format: .xml, options: 0)
                 try data.write(to: url, options: .atomic)
-                    
+                
                 sendDidFinish()
                 dismiss(animated: true, completion: nil)
             } catch {
-                print("error: \(error)")
+                os_log("Could not write data", type: .error)
             }
         }
     }

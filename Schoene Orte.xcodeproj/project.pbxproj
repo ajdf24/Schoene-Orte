@@ -115,10 +115,18 @@
 		B2AA50122451E16E00BC287D /* System */ = {
 			isa = PBXGroup;
 			children = (
+				B2AA50192451E83600BC287D /* Error */,
 				B2AA50132451E19000BC287D /* FileHandler.swift */,
-				B2AA50172451E75B00BC287D /* RuntimeError.swift */,
 			);
 			path = System;
+			sourceTree = "<group>";
+		};
+		B2AA50192451E83600BC287D /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				B2AA50172451E75B00BC287D /* RuntimeError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		B2C003BA244B3E7A005C7CE4 = {
