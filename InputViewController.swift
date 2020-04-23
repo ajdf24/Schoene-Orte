@@ -8,7 +8,13 @@
 
 import UIKit
 
-class InputViewController: UITableViewController {
+protocol InputViewControllerDelegate: class {
+    
+    func inputViewControllerDidCancel(_ inputViewController: InputViewController)
+    func inputViewControllerDidFinish(_ inputViewController: InputViewController)
+}
+
+class InputViewController: UITableViewController, UIAdaptivePresentationControllerDelegate {
     
     @IBOutlet weak var nameTextfield: UITextField!
     @IBOutlet weak var websiteTextfield: UITextField!
@@ -28,10 +34,53 @@ class InputViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - Delegate
+    
+    weak var delegate: InputViewControllerDelegate?
+    
+    func sendDidCancel() {
+        delegate?.inputViewControllerDidCancel(self)
+    }
+    
+    func sendDidFinish() {
+        delegate?.inputViewControllerDidFinish(self)
+    }
+    
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        print("diddissmis")
+        
+    }
+    
     @IBAction func save(_ sender: Any) {
+        
         if let name = nameTextfield.text{
             let place = Place(name: name, website: websiteTextfield.text, phone: phonenumberTextfield.text)
             print("place: \(place)")
+            let plistDictionary = place.plistDictionary()
+            print("plistDictionary: \(plistDictionary)")
+            
+            let plistArry = [plistDictionary]
+            do {
+                let data = try PropertyListSerialization.data(fromPropertyList: plistArry, format: .xml, options: 0)
+                
+                let fileURLs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+                
+                if let documentURL = fileURLs.first {
+                    let url = documentURL.appendingPathComponent("places.plist")
+                    try data.write(to: url, options: .atomic)
+                    
+//                    presentationControllerDidDismiss(self.presentingViewController!.presentationController!)
+//                    let blub = self.presentingViewController as! UIAdaptivePresentationControllerDelegate
+//                    blub.presentationControllerDidDismiss()
+//                    dismiss(animated: true, completion: nil)
+                    sendDidFinish()
+                    dismiss(animated: true, completion: nil)
+                } else {
+                    print("Fehler im Dateisystem")
+                }
+            } catch {
+                print("error: \(error)")
+            }
         }
     }
     /*

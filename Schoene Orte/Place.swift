@@ -32,4 +32,44 @@ struct Place{
             self.timestamp = Date().timeIntervalSince1970
         }
     }
+    
+    init(dictionary: [String:Any]) {
+        name = dictionary["name"] as! String
+        timestamp = dictionary["timestamp"] as! Double
+        imageName = dictionary["imageName"] as? String
+        website = dictionary["website"] as? String
+        phone = dictionary["phone"] as? String
+        
+        if let longitude = dictionary["longitude"] as? Double, let latitude = dictionary["latitude"] as? Double {
+            coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        } else {
+            coordinate = nil
+        }
+    }
+    
+    func plistDictionary() -> [String:Any] {
+        
+        var theDictionary: [String:Any] = [:]
+        theDictionary["name"] = name
+        theDictionary["timestamp"] = timestamp
+        
+        if let theImageName = imageName {
+            theDictionary["imageName"] = theImageName
+        }
+        
+        if let theWebsite = website {
+            theDictionary["website"] = theWebsite
+        }
+        
+        if let thePhone = phone {
+            theDictionary["phone"] = thePhone
+        }
+        
+        if let theCoordinate = coordinate {
+            theDictionary["longitude"] = theCoordinate.longitude
+            theDictionary["latitude"] = theCoordinate.latitude
+        }
+        
+        return theDictionary
+    }
 }

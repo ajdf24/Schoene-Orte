@@ -8,27 +8,71 @@
 
 import UIKit
 
-class NicePlacesTableViewController: UITableViewController {
+class NicePlacesTableViewController: UITableViewController, InputViewControllerDelegate {
+    
+    func inputViewControllerDidCancel(_ inputViewController: InputViewController) {
+        loadData()
+    }
+    
+    func inputViewControllerDidFinish(_ inputViewController: InputViewController) {
+        loadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
+            // Get the presented navigationController and the editViewController it contains
+            let navigationController = segue.destination as! UINavigationController
+            let editViewController = navigationController.topViewController as! InputViewController
+            
+            // Set the editViewController to be the delegate of the presentationController for this presentation,
+            // so that editViewController can respond to attempted dismissals
+            navigationController.presentationController?.delegate = editViewController
+            
+            // Set ourself as the delegate of editViewController, so we can respond to editViewController cancelling or finishing
+            editViewController.delegate = self
+        
+    }
+    
 
     var places:[Place] = []
 
     override func viewDidLoad() {
+        print("didload")
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
-        let home = Place(name: "Zu Hause")
-        places.append(home)
+    print("Will Appear")
+        super.viewWillAppear(animated)
         
-        let office = Place(name: "Büro")
-        places.append(office)
+        loadData()
+    }
+    
+    func loadData() {
+        places.removeAll()
         
-        let gym = Place(name: "Fitti")
-        places.append(gym)
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        do {
+            let fileURLs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            
+            if let documentURL = fileURLs.first {
+                let url = documentURL.appendingPathComponent("places.plist")
+                let data = try Data(contentsOf: url)
+                let plist = try PropertyListSerialization.propertyList(from: data, options: [], format: nil)
+                
+                if let array = plist as? [[String:Any]] {
+                    for dictionary in array {
+                        let place = Place(dictionary: dictionary)
+                        places.append(place)
+                    }
+                    tableView.reloadData()
+                }
+            } else {
+                print("Fehler im Dateisystem")
+            }
+        } catch {
+            print("error: \(error)")
+        }
     }
 
     // MARK: - Table view data source

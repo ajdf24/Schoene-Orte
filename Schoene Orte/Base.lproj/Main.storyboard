@@ -65,7 +65,7 @@
                     <navigationItem key="navigationItem" id="dDd-qM-NCg">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ohq-LU-01j">
                             <connections>
-                                <segue destination="4Ek-Ue-1YT" kind="presentation" id="BJ3-2Q-otL"/>
+                                <segue destination="4Ek-Ue-1YT" kind="show" id="BJ3-2Q-otL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -79,7 +79,7 @@
             <objects>
                 <tableViewController id="wCy-oG-Pfz" customClass="InputViewController" customModule="Schoene_Orte" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wND-iN-Iv4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
                             <tableViewSection id="CjP-KC-qcy">
@@ -219,8 +219,9 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Ek-Ue-1YT" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="sha-f3-JjQ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qb5-nz-G30">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
